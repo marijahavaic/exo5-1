@@ -2,7 +2,7 @@ import { useState } from "react";
 import Profile from "./Profile";
 
 const ProfilesList = () => {
-    const [profiles, setProfiles] = useState([
+    const profiles = [
         {
             jobTitle: "Webdesigner",
             name: "Mathilde",
@@ -79,7 +79,7 @@ const ProfilesList = () => {
             description:
                 "Je suis passionné de Javascript et React. J'apprends le développement web depuis 2 ans. ",
         },
-    ]);
+    ];
 
     const [clickedProfile, setClickedProfile] = useState([]);
 
