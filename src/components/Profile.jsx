@@ -5,8 +5,8 @@ const Profile = ({ profile }) => {
         <div>
             <h2>{profile.jobTitle}</h2>
             <span>{profile.name}</span>
-            <small>{profile.age}</small>
-            <p>{profile.description}</p>
+            <p>{profile.age}</p>
+            <li>{profile.description}</li>
         </div>
     );
 };

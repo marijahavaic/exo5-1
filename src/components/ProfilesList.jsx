@@ -81,12 +81,13 @@ const ProfilesList = () => {
         },
     ]);
 
-    const showProfile = (id) => {
-        setProfiles(
-            profiles.filter((profile) => {
-                return profile.id === id;
-            })
-        );
+    const [clickedProfile, setClickedProfile] = useState([]);
+
+    const showProfile = (name) => {
+        const clickedProfile = profiles.filter((profile) => {
+            return profile.name === name;
+        });
+        setClickedProfile(clickedProfile);
     };
 
     return (
@@ -95,17 +96,15 @@ const ProfilesList = () => {
                 {profiles.map((profile) => (
                     <button
                         id={profile.id}
-                        onClick={() => showProfile(profile.id)}
+                        onClick={() => showProfile(profile.name)}
                     >
                         {profile.name.toUpperCase()}
                     </button>
                 ))}
             </div>
-            <div className="container">
-                {profiles.map((profile) => (
-                    <Profile profile={profile} />
-                ))}
-            </div>
+            {clickedProfile.map((profile) => (
+                <Profile profile={profile} />
+            ))}
         </div>
     );
 };
