@@ -1,5 +1,6 @@
 import { useState } from "react";
 import Profile from "./Profile";
+import Sidebar from "./Sidebar";
 
 const ProfilesList = () => {
     const profiles = [
@@ -81,30 +82,19 @@ const ProfilesList = () => {
         },
     ];
 
-    const [clickedProfile, setClickedProfile] = useState([]);
+    const [clickedProfile, setClickedProfile] = useState("");
 
     const showProfile = (name) => {
         const clickedProfile = profiles.filter((profile) => {
             return profile.name === name;
         });
-        setClickedProfile(clickedProfile);
+        setClickedProfile(clickedProfile[0]);
     };
 
     return (
         <div id="ProfilesList">
-            <div className="aside">
-                {profiles.map((profile) => (
-                    <button
-                        id={profile.id}
-                        onClick={() => showProfile(profile.name)}
-                    >
-                        {profile.name.toUpperCase()}
-                    </button>
-                ))}
-            </div>
-            {clickedProfile.map((profile) => (
-                <Profile profile={profile} />
-            ))}
+            <Sidebar profiles={profiles} handleClick={showProfile} />
+            <Profile profile={clickedProfile} />
         </div>
     );
 };

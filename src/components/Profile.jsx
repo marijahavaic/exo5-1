@@ -6,7 +6,7 @@ const Profile = ({ profile }) => {
             <h2>{profile.jobTitle}</h2>
             <span>{profile.name}</span>
             <p>{profile.age}</p>
-            <li>{profile.description}</li>
+            <p>{profile.description}</p>
         </div>
     );
 };
